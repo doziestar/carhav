@@ -58,6 +58,13 @@ jobs:
 
       - name: Tear down the Stack
         run:  docker-compose -f local.yml down
+  remove-files:
+    runs-on: self-hosted
+
+    steps:
+      - name:  Remove staticfiles
+        run: echo "Remove Staticfiles" | echo ${{ secrets.VPS_PASSWORD }} |
+          sudo -S rm -rf /home/dozie/carhav/_work/carhav/carhav/staticfiles
 
   deploy:
     runs-on: self-hosted
@@ -68,9 +75,6 @@ jobs:
       - name: Checkout Code Repository
         uses: actions/checkout@v3
 
-      - name:  Remove staticfiles
-        run: echo "Remove Staticfiles" | echo ${{ secrets.VPS_PASSWORD }} |
-          sudo -S rm -rf /home/dozie/carhav/_work/carhav/carhav/staticfiles
 
       - name: Build the Stack
         run: echo "Build the Stack" | echo ${{ secrets.VPS_PASSWORD }} |
