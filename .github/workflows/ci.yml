@@ -68,7 +68,7 @@ jobs:
 
   deploy:
     runs-on: self-hosted
-    # needs: [linter, pytest]
+    needs: [remove-files]
     # if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
 
     steps:
