@@ -68,6 +68,10 @@ jobs:
       - name: Checkout Code Repository
         uses: actions/checkout@v3
 
+      - name:  Remove staticfiles
+        run: echo "Remove Staticfiles" | echo ${{ secrets.VPS_PASSWORD }} |
+          sudo -S rm -rf /home/dozie/carhav/_work/carhav/carhav/staticfiles
+
       - name: Build the Stack
         run: echo "Build the Stack" | echo ${{ secrets.VPS_PASSWORD }} |
           sudo -S docker-compose -f local.yml build
