@@ -13,6 +13,13 @@ class HomePage(ListView):
 
 class About(TemplateView):
     template_name = "core/about.html"
+    
+class Appointment(TemplateView):
+    template_name = "core/appointment.html"
+    
+    
+class Partners(TemplateView):
+    template_name = "core/partners.html"
 
 
 class PostDetail(DetailView):

@@ -3647,7 +3647,7 @@ body .search-modal .close:hover {
   padding: 50px 0px 100px 0px;
 }
 .rs-appointment.style1 .appoint-schedule .appoint-img {
-  background: url(assets/images/appointment/1.jpg);
+  background: url(images/appointment/1.jpg);
   background-repeat: no-repeat;
   background-position: center left;
   background-size: cover;

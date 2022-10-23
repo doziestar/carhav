@@ -75,7 +75,7 @@
                                            </li>
                                            <li>
                                                <i class="flaticon-location"></i>
-                                              22 sundown, Cochrane Alberta
+                                               Calgary, Alberta
                                            </li>
                                        </ul>
                                     </div>
@@ -84,9 +84,9 @@
                                     <div class="toolbar-sl-share">
                                         <ul>
                                              <li class="opening"> <em><i class="flaticon-clock"></i>Monday - Friday / 8AM - 11PM</em> </li>
-                                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                             <li><a href="https://www.youtube.com/channel/UCHojjNCXlqH_wDtqGfVWoGg"><i class="fa fa-youtube"></i></a></li>
                                              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                             <li><a href="https://www.linkedin.com/company/careerhaven-consulting-inc/"><i class="fa fa-linkedin"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -119,24 +119,24 @@
                                                     <li class="menu-item-has-children">
                                                         <a href="#">Company</a>
                                                         <ul class="sub-menu">
-                                                            <li><a href="/">About</a></li>
-                                                            <li class="last-item">
-                                                                <a href="#">Team</a>
-                                                            </li>
-                                                            <li class="last-item ">
-                                                            </li>
-                                                            <li><a href="/">Appointment</a></li>
+                                                            <li><a href="{% url 'core:about' %}">About</a></li>
+                                                            <li><a href="{% url 'core:appointment' %}">Appointment</a></li>
                                     <li><a href="/">Careers</a></li>
-                                    <li><a href="/">Faqs</a></li>
                                     <li><a href="/">Partners</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="menu-item-has-children">
                                                         <a href="#">Services</a>
                                                         <ul class="sub-menu">
-                                                            <li><a href="/">Career Consulting</a></li>
-                                                            <li><a href="/">Interview Prep</a></li>
+                                                            <li><a href="/">Career planning</a></li>
+                                                            <li><a href="/">Bootcamps</a></li>
+                                                            <li><a href="/">Specialized Trainings</a></li>
+                                                            <li><a href="/">Recruitment</a></li>
                                                         </ul>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Jobs</a>
+
                                                     </li>
                                                     <li>
                                                         <a href="#">News & Events</a>
@@ -195,7 +195,9 @@
                             <a href="/"><img src="{% static 'assets/images/carlogo.png' %}" alt="logo"></a>
                         </div>
                         <div class="offcanvas-text">
-                            <p>MyTechbestfriend has a 90% success rate across all bootcamps provided. Students usually begin to hear from recruiters right after receiving new resume.</p>
+                            <p>Careerhaven has assisted over 50 professionals in landing a new job or getting value from their skills.
+                                Approximately our students get job offers within 4 to 8weeks. Our highly efficient resume revamp
+                                ensures you start getting interview invites and LinkedIn HR connects between 2 to 3 weeks..</p>
                         </div>
                         <div class="media-img">
                             <img src="{% static 'assets/images/off2.jpg' %}" alt="Images">
@@ -208,7 +210,7 @@
                                     </div>
                                     <div class="info-content">
                                         <h4 class="title">Address</h4>
-                                        <em>22 sundown close, Cochrane Alberta</em>
+                                        <em>Calgary, Alberta</em>
                                     </div>
                                 </div>
                                 <div class="address-list">
@@ -288,7 +290,7 @@
                                       </div>
                                       <div class="info-content">
                                           <h4 class="title">Address</h4>
-                                          <em>22 sundown close, Cochrane Alberta</em>
+                                          <em>Calgary, Alberta.</em>
                                       </div>
                                   </div>
                                   <div class="address-list">
@@ -330,8 +332,8 @@
                                    </div>
                                    <div class="content-text">
                                        <h2 class="title"><a href="#">USA office</a></h2>
-                                       <p class="services-txt">55 Gerad Lane,<br>
-                                        NY 11201, USA</p>
+                                       <p class="services-txt">
+                                        Huston, Texas.</p>
                                    </div>
                                 </div>
                             </div>
@@ -342,8 +344,8 @@
                                    </div>
                                    <div class="content-text">
                                        <h2 class="title"><a href="#">Canada office</a></h2>
-                                       <p class="services-txt">22 sundown close,<br>
-                                         Cochrane Alberta.</p>
+                                       <p class="services-txt">
+                                        Calgary, Alberta.</p>
                                    </div>
                                 </div>
                             </div>
@@ -367,7 +369,7 @@
                                    <div class="content-text">
                                        <h2 class="title"><a href="#">Call us</a></h2>
                                        <a href="tel:+12892441090">(+1)2892441090</a>
-                                       <a href="tel:+12892441090">(+1)2892441090</a>
+                                       {% comment %} <a href="tel:+12892441090">(+1)2892441090</a> {% endcomment %}
                                    </div>
                                 </div>
                             </div>
@@ -411,13 +413,13 @@
                               </ul>
                         </div>
                         <div class="col-lg-3 col-md-12 col-sm-12 md-mb-10 pl-55 md-pl-15">
-                            <h3 class="footer-title">Our Services</h3>
+                            <h3 class="footer-title">Resources</h3>
                             <ul class="site-map">
-                                <li><a href="/">Business planning</a></li>
-                                <li><a href="/">Tax strategy</a></li>
-                                <li><a href="/">Financial advices</a></li>
-                                <li><a href="/">Insurance strategy</a></li>
-                                <li><a href="/">Manage investment</a></li>
+                                <li><a href="/">Careers</a></li>
+                                <li><a href="/">Sponsor a student</a></li>
+                                <li><a href="/">Become an Affliate</a></li>
+                                <li><a href="/">Scholarships</a></li>
+                                {% comment %} <li><a href="/">Manage investment</a></li> {% endcomment %}
                             </ul>
                         </div>
                         <div class="col-lg-3 col-md-12 col-sm-12 md-mb-10">
@@ -425,8 +427,7 @@
                             <ul class="address-widget">
                                 <li>
                                     <i class="flaticon-location"></i>
-                                    <div class="desc">22 sundown close<br>
-                                        Cochrane Alberta</div>
+                                    <div class="desc">Calgary, Alberta.</div>
                                 </li>
                                 <li>
                                     <i class="flaticon-call"></i>
@@ -472,7 +473,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="copyright text-lg-start text-center ">
-                                <p>© 2021 careerhaven.ca - Career Haven. All Rights Reserved.</p>
+                                <p>© <script>document.write(new Date().getFullYear())</script> careerhaven.ca - Career Haven. All Rights Reserved.</p>
                             </div>
                         </div>
                     </div>
