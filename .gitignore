@@ -273,6 +273,6 @@ carhav/media/
 
 .pytest_cache/
 .ipython/
-.env
-.envs/*
+# .env
+# .envs/*
 !.envs/.local/

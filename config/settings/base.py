@@ -284,3 +284,5 @@ STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+COMPRESS_ENABLED = env.bool("COMPRESS_ENABLED", True)
+COMPRESS_OFFLINE = env.bool("COMPRESS_OFFLINE", True)
