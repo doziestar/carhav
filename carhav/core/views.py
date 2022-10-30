@@ -17,6 +17,14 @@ class About(TemplateView):
 class Appointment(TemplateView):
     template_name = "core/appointment.html"
     
+
+class ResumeRevamp(TemplateView):
+    template_name = "core/resume.html"
+    
+    
+class InterviewPrep(TemplateView):
+    template_name = "core/interview_prep.html"
+    
     
 class Partners(TemplateView):
     template_name = "core/partners.html"

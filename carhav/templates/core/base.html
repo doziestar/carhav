@@ -83,9 +83,9 @@
                                 <div class="col-lg-5 text-right">
                                     <div class="toolbar-sl-share">
                                         <ul>
-                                             <li class="opening"> <em><i class="flaticon-clock"></i>Monday - Friday / 8AM - 11PM</em> </li>
+                                             <li class="opening"> <em><i class="flaticon-clock"></i>Monday - Friday / 8AM - 5PM</em> </li>
                                              <li><a href="https://www.youtube.com/channel/UCHojjNCXlqH_wDtqGfVWoGg"><i class="fa fa-youtube"></i></a></li>
-                                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                             <li><a href="https://www.facebook.com/profile.php?id=100087090351231"><i class="fa fa-facebook"></i></a></li>
                                              <li><a href="https://www.linkedin.com/company/careerhaven-consulting-inc/"><i class="fa fa-linkedin"></i></a></li>
                                         </ul>
                                     </div>
@@ -121,16 +121,48 @@
                                                         <ul class="sub-menu">
                                                             <li><a href="{% url 'core:about' %}">About</a></li>
                                                             <li><a href="{% url 'core:appointment' %}">Appointment</a></li>
-                                    <li><a href="/">Careers</a></li>
-                                    <li><a href="{% url 'core:partners' %}">Partners</a></li>
+                                                    <li><a href="/">Careers</a></li>
+                                                    <li><a href="{% url 'core:partners' %}">Partners</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="menu-item-has-children">
                                                         <a href="#">Services</a>
                                                         <ul class="sub-menu">
                                                             <li><a href="/">Career planning</a></li>
-                                                            <li><a href="/">Bootcamps</a></li>
-                                                            <li><a href="/">Specialized Trainings</a></li>
+                                                            <li class="last-item menu-item-has-children">
+                                                                    <a href="#">Bootcamps</a>
+                                                                    <ul class="sub-menu">
+                                                                        {% comment %} <li><a href="/">IIBA certification</a></li> {% endcomment %}
+                                                                        <li><a href="/">Business Analysis</a></li>
+                                                                        <li><a href="/">Data Analysis</a></li>
+                                                                        <li><a href="/">Project Management</a></li>
+                                                                        <li><a href="/">Agile/Scrum Master</a></li>
+                                                                    </ul>
+
+                                                            </li>
+                                                            <li class="last-item menu-item-has-children">
+                                                                    <a href="#">Specialized Trainings</a>
+                                                                    <ul class="sub-menu">
+                                                                        {% comment %} <li><a href="/">IIBA certification</a></li> {% endcomment %}
+                                                                        <li><a href="{% url 'core:ecba' %}">ECBA – Entry certificate in Business Analysis</a></li>
+                                                                        <li><a href="{% url 'core:ccba' %}">CCBA – Certification of Capability in Business Analysis</a></li>
+                                                                        <li><a href="{% url 'core:cbap' %}">CBAP – Certified Business Analysis Professional</a></li>
+                                                                        <li><a href="{% url 'core:cca' %}">CCA – Certificate in Cybersecurity Analysis</a></li>
+                                                                        <li><a href="{% url 'core:cbda' %}">CBDA – Certificate in Business Data Analysis</a></li>
+                                                                        <li><a href="{% url 'core:aac' %}">AAC – Agile Analysis Certification</a></li>
+                                                                    </ul>
+
+                                                            </li>
+                                                            <li class="last-item menu-item-has-children">
+                                                                    <a href="#">Interviews</a>
+                                                                    <ul class="sub-menu">
+                                                                        {% comment %} <li><a href="/">IIBA certification</a></li> {% endcomment %}
+                                                                        <li><a href="{% url 'core:interview_prep' %}">Interview Prep</a></li>
+                                            <li><a href="{% url 'core:resume' %}">Resume Review</a></li>
+                                                        
+                                                                    </ul>
+
+                                                            </li>
                                                             <li><a href="/">Recruitment</a></li>
                                                         </ul>
                                                     </li>
@@ -233,9 +265,9 @@
                                 </div>
                             </div>
                             <ul class="social">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                                <li><a href="https://www.facebook.com/profile.php?id=100087090351231"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/careerhaven-consulting-inc/"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCHojjNCXlqH_wDtqGfVWoGg"><i class="fa fa-youtube"></i></a></li>
                             </ul>
                         </div>
                     </nav>
@@ -252,34 +284,70 @@
                             </a>
                         </div>
                         <ul class="nav-menu">
-                            <li>
-                                <a href="index.html">Home</a>
+                            <li class="rs-mega-menu current-menu-item">
+                                <a href="/">Home</a>
+
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="#">Company</a>
                                 <ul class="sub-menu">
-                                    <li><a href="/">About</a></li>
-                                    <li class="last-item ">
-                                        <a href="#">Team</a>
-                                    </li>
-                                    <li><a href="/">Appointment</a></li>
-                                    <li><a href="/">Careers</a></li>
-                                    <li><a href="/">Faqs</a></li>
-                                    <li><a href="/">Partners</a></li>
+                                    <li><a href="{% url 'core:about' %}">About</a></li>
+                                    <li><a href="{% url 'core:appointment' %}">Appointment</a></li>
+                            <li><a href="/">Careers</a></li>
+                            <li><a href="{% url 'core:partners' %}">Partners</a></li>
                                 </ul>
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="#">Services</a>
                                 <ul class="sub-menu">
-                                    <li><a href="/">Career Consulting</a></li>
-                                    <li><a href="/">Interview Prep</a></li>
+                                    <li><a href="/">Career planning</a></li>
+                                    <li class="last-item menu-item-has-children">
+                                            <a href="#">Bootcamps</a>
+                                            <ul class="sub-menu">
+                                                {% comment %} <li><a href="/">IIBA certification</a></li> {% endcomment %}
+                                                <li><a href="/">Business Analysis</a></li>
+                                                <li><a href="/">Data Analysis</a></li>
+                                                <li><a href="/">Project Management</a></li>
+                                                <li><a href="/">Agile/Scrum Master</a></li>
+                                            </ul>
+
+                                    </li>
+                                    <li class="last-item menu-item-has-children">
+                                            <a href="#">Specialized Trainings</a>
+                                            <ul class="sub-menu">
+                                                {% comment %} <li><a href="/">IIBA certification</a></li> {% endcomment %}
+                                                <li><a href="{% url 'core:ecba' %}">ECBA – Entry certificate in Business Analysis</a></li>
+                                                <li><a href="{% url 'core:ccba' %}">CCBA – Certification of Capability in Business Analysis</a></li>
+                                                <li><a href="{% url 'core:cbap' %}">CBAP – Certified Business Analysis Professional</a></li>
+                                                <li><a href="{% url 'core:cca' %}">CCA – Certificate in Cybersecurity Analysis</a></li>
+                                                <li><a href="{% url 'core:cbda' %}">CBDA – Certificate in Business Data Analysis</a></li>
+                                                <li><a href="{% url 'core:aac' %}">AAC – Agile Analysis Certification</a></li>
+                                            </ul>
+
+                                    </li>
+                                    <li class="last-item menu-item-has-children">
+                                        <a href="#">Interviews</a>
+                                        <ul class="sub-menu">
+                                            {% comment %} <li><a href="/">IIBA certification</a></li> {% endcomment %}
+                                            <li><a href="{% url 'core:interview_prep' %}">Interview Prep</a></li>
+                                            <li><a href="{% url 'core:resume' %}">Resume Review</a></li>
+                            
+                                        </ul>
+
+                                </li>
+                                    <li><a href="/">Recruitment</a></li>
                                 </ul>
                             </li>
-                            <li >
-                                <a href="#">News & Events</a>
+                            <li>
+                                <a href="#">Jobs</a>
+
                             </li>
-                            <li >
-                                <a href="#">Contact</a>
+                            <li>
+                                <a href="#">News & Events</a>
+
+                            </li>
+                            <li class="rs-mega-menu">
+                                <a href="{% url 'core:contact' %}">Contact</a>
                             </li>
                         </ul> <!-- //.nav-menu -->
                         <div class="canvas-contact">
@@ -391,7 +459,7 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-12 col-sm-12 md-mb-10">
                             <div class="footer-logo mb-40">
-                                <a href="index.html"><img src="{% static 'assets/images/carlogo.png' %}" alt=""></a>
+                                <a href="/"><img src="{% static 'assets/images/carlogo.png' %}" alt=""></a>
                             </div>
                               <div class="textwidget white-color pb-40"><p>We denounce with righteous indig nation in and dislike men who are so beguiled and to demo realized by the, so blinded by desire, that they cannot foresee.</p>
                               </div>
