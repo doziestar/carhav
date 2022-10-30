@@ -50,3 +50,6 @@ class Services(TemplateView):
 
 class Contact(TemplateView):
     template_name = "core/contact.html"
+    
+class Bootcamp(TemplateView):
+    template_name = "core/bootcamps.html"

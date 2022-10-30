@@ -128,18 +128,11 @@
                                                     <li class="menu-item-has-children">
                                                         <a href="#">Services</a>
                                                         <ul class="sub-menu">
-                                                            <li><a href="/">Career planning</a></li>
-                                                            <li class="last-item menu-item-has-children">
-                                                                    <a href="#">Bootcamps</a>
-                                                                    <ul class="sub-menu">
-                                                                        {% comment %} <li><a href="/">IIBA certification</a></li> {% endcomment %}
-                                                                        <li><a href="/">Business Analysis</a></li>
-                                                                        <li><a href="/">Data Analysis</a></li>
-                                                                        <li><a href="/">Project Management</a></li>
-                                                                        <li><a href="/">Agile/Scrum Master</a></li>
-                                                                    </ul>
-
-                                                            </li>
+                                                            <li><a href="{% url 'core:careers' %}">Career planning</a></li>
+                                                            <li >
+                                                                <a href="{% url 'core:bootcamp' %}">Bootcamps</a>
+                    
+                                                        </li>
                                                             <li class="last-item menu-item-has-children">
                                                                     <a href="#">Specialized Trainings</a>
                                                                     <ul class="sub-menu">
@@ -300,16 +293,9 @@
                             <li class="menu-item-has-children">
                                 <a href="#">Services</a>
                                 <ul class="sub-menu">
-                                    <li><a href="/">Career planning</a></li>
-                                    <li class="last-item menu-item-has-children">
-                                            <a href="#">Bootcamps</a>
-                                            <ul class="sub-menu">
-                                                {% comment %} <li><a href="/">IIBA certification</a></li> {% endcomment %}
-                                                <li><a href="/">Business Analysis</a></li>
-                                                <li><a href="/">Data Analysis</a></li>
-                                                <li><a href="/">Project Management</a></li>
-                                                <li><a href="/">Agile/Scrum Master</a></li>
-                                            </ul>
+                                    <li><a href="{% url 'core:careers' %}">Career planning</a></li>
+                                    <li >
+                                            <a href="{% url 'core:bootcamp' %}">Bootcamps</a>
 
                                     </li>
                                     <li class="last-item menu-item-has-children">

@@ -12,6 +12,7 @@ from carhav.core.views import (
     Partners,
     InterviewPrep,
     ResumeRevamp,
+    Bootcamp
 )
 
 app_name = "core"
@@ -33,4 +34,6 @@ urlpatterns = [
     path("cca/", TemplateView.as_view(template_name="core/cca.html"), name="cca"),
     path("cbda/", TemplateView.as_view(template_name="core/cbda.html"), name="cbda"),
     path("aac/", TemplateView.as_view(template_name="core/aac.html"), name="aac"),
+    path("careers/", TemplateView.as_view(template_name="core/careers.html"), name="careers"),
+    path("bootcamp/", Bootcamp.as_view(), name="bootcamp"),
 ]
