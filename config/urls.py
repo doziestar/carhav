@@ -10,6 +10,7 @@ urlpatterns = [
     #     "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
     # ),
     path("", include("core.urls", namespace="core")),
+    path('summernote/', include('django_summernote.urls')),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management

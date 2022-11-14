@@ -625,7 +625,7 @@ administrative charge of $100.
       </div>
       <div class="col-lg-7 text-right md-left">
         <div class="btn-part mb-90 md-mb-50">
-          <a class="readon consultant discover" href="about.html"
+          <a class="readon consultant discover" href="#"
             >View Peoples</a
           >
         </div>
@@ -657,7 +657,34 @@ administrative charge of $100.
       data-mobile-device-nav="false"
       data-mobile-device-dots="true"
     >
+    {% for team in teams %}
       <div class="team-wrap">
+        <div class="image-wrap">
+          <a href="#"
+            ><img src="{{team.image.url}}" alt="Team"
+          /></a>
+          <ul class="social-icons">
+            <li>
+              <a href="{{team.facebook}}"><i class="fa fa-facebook"></i></a>
+            </li>
+            {% comment %} <li>
+              <a href="{{team.i}}"><i class="fa fa-instagram"></i></a>
+            </li> {% endcomment %}
+            <li>
+              <a href="{{team.twitter}}"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="{{team.linkedin}}"><i class="fa fa-linkedin"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="team-content">
+          <h3 class="team-name"><a href="{{ team.linkedin }}">{{team.title}}</a></h3>
+          <span class="team-title">{{team.position}}</span>
+        </div>
+      </div>
+      {% endfor %}
+      {% comment %} <div class="team-wrap">
         <div class="image-wrap">
           <a href="#"
             ><img src="{% static 'assets/images/femi.jpeg' %}" alt="Team"
@@ -785,7 +812,7 @@ administrative charge of $100.
             >Senior Manager, Growth and Expansion</span
           >
         </div>
-      </div>
+      </div> {% endcomment %}
     </div>
   </div>
 </div>

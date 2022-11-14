@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView, ListView, DetailView
 
-from carhav.core.models import Post
+from carhav.core.models import Post, Course, Team
 
 
 class HomePage(ListView):
@@ -9,6 +9,11 @@ class HomePage(ListView):
 
     def get_queryset(self):
         return Post.objects.all()
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['teams'] = Team.objects.all()
+        return context
 
 
 class About(TemplateView):
@@ -53,3 +58,8 @@ class Contact(TemplateView):
     
 class Bootcamp(TemplateView):
     template_name = "core/bootcamps.html"
+
+class SpecializeTraining(ListView):
+    template_name = "core/training.html"
+    model = Course
+    context_object_name = "courses_list"
