@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView, ListView, DetailView
 
-from carhav.core.models import Post, Course, Team
+from carhav.core.models import Post, Course, Team, BootcampModel
 
 
 class HomePage(ListView):
@@ -56,10 +56,30 @@ class Services(TemplateView):
 class Contact(TemplateView):
     template_name = "core/contact.html"
     
-class Bootcamp(TemplateView):
+class Bootcamp(ListView):
     template_name = "core/bootcamps.html"
+    paginate_by = 4
+    model: BootcampModel = BootcampModel
+    context_object_name = "bootcamps"
 
 class SpecializeTraining(ListView):
     template_name = "core/training.html"
     model = Course
     context_object_name = "courses_list"
+    paginate_by: int = 4
+    
+class SpecializeTrainingDetails(DetailView):
+    model = Course
+    template_name = "core/training-details.html"
+    context_object_name: str = "course"
+    
+class BootcampDetails(DetailView):
+    model = BootcampModel
+    template_name = "core/bootcamp-details.html"
+    context_object_name: str = "bootcamp"
+    
+
+class TeamDetail(DetailView):
+    model = Team
+    template_name = "core/team_detail.html"
+    context_object_name: str = "team"

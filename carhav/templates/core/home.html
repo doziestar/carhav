@@ -660,16 +660,16 @@ administrative charge of $100.
     {% for team in teams %}
       <div class="team-wrap">
         <div class="image-wrap">
-          <a href="#"
+          <a href="{% url 'core:team_detail' team.slug %}"
             ><img src="{{team.image.url}}" alt="Team"
           /></a>
           <ul class="social-icons">
             <li>
               <a href="{{team.facebook}}"><i class="fa fa-facebook"></i></a>
             </li>
-            {% comment %} <li>
-              <a href="{{team.i}}"><i class="fa fa-instagram"></i></a>
-            </li> {% endcomment %}
+           <li>
+              <a href="{{team.instagram}}"><i class="fa fa-instagram"></i></a>
+            </li> 
             <li>
               <a href="{{team.twitter}}"><i class="fa fa-twitter"></i></a>
             </li>
@@ -679,7 +679,7 @@ administrative charge of $100.
           </ul>
         </div>
         <div class="team-content">
-          <h3 class="team-name"><a href="{{ team.linkedin }}">{{team.title}}</a></h3>
+          <h3 class="team-name"><a href="{% url 'core:team_detail' team.slug %}">{{team.title}}</a></h3>
           <span class="team-title">{{team.position}}</span>
         </div>
       </div>
