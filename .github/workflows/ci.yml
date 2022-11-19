@@ -85,7 +85,7 @@ jobs:
             requirements/local.txt
             requirements/production.txt
       - name: Build the Stack
-        run: echo "Install Packages" | python -m pip install -r requirements2.txt
+        run: echo "Install Packages" | python -m pip install -r requirements.txt
       - name: Run DB Migrations
         run: echo "Run DB Migrations" | python manage.py migrate
 
