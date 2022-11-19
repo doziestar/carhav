@@ -82,9 +82,7 @@ jobs:
           # python-version: "3.9"
           cache: pip
           cache-dependency-path: |
-            requirements/base.txt
-            requirements/local.txt
-            requirements/production.txt
+            requirements.txt
       - name: Create Virtual Environment
         run: python -m venv venv && source venv/bin/activate
       - name: Build the Stack
