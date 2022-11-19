@@ -1,0 +1,221 @@
+{% extends 'core/base.html' %} {% load static crispy_forms_tags %} {% block title %}{{training.title}}{% endblock title %} {% block content %}
+        <!-- Breadcrumbs Start -->
+        <div class="rs-breadcrumbs img4">
+            <div class="container">
+                <div class="breadcrumbs-inner">
+                    <h1 class="page-title">
+                        {{training.title}}
+                        <span class="watermark">Training</span>
+                    </h1>
+                    <span class="sub-text">{{training.excerpt | safe}}</span>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumbs End -->
+
+        <!-- Slider Section Start -->
+        <div class="rs-slider style4 pt-100 pb-100">
+            <div class="container">
+                <div class="rs-carousel owl-carousel" data-loop="true" data-items="1" data-margin="0"
+                    data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800"
+                    data-dots="false" data-nav="false" data-nav-speed="false" data-center-mode="false"
+                    data-mobile-device="1" data-mobile-device-nav="false" data-mobile-device-dots="false"
+                    data-ipad-device="1" data-ipad-device-nav="true" data-ipad-device-dots="false" data-ipad-device2="1"
+                    data-ipad-device-nav2="true" data-ipad-device-dots2="false" data-md-device="1"
+                    data-md-device-nav="true" data-md-device-dots="false">
+                    <div class="slider-img">
+                        <img src="{{training.image.url}}" alt="Slider">
+                    </div>
+                    <div class="slider-img">
+                        <img src="{{training.image2.url}}" alt="Slider">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Slider Section End -->
+
+        <!-- Project Section Start -->
+        <div class="rs-project pb-110 md-pt-70 md-pb-7">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 pr-60 md-pr-15">
+                        <div class="sec-title mb-64">
+                            <h2 class="title title4 pb-30">
+                                {{training.title}}
+                            </h2>
+                            <p class="margin-0">{{training.description | safe}} </p>
+                        </div>
+                        <!-- Counter Section End -->
+                        <div class="rs-counter style1 project-single bg23">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="counter-area">
+                                            <div class="counter-list mb-20">
+                                                <div class="counter-icon">
+                                                    <img src="{% static 'assets/images/counter/icons/1.png' %}" alt="Counter">
+                                                </div>
+                                                <div class="counter-number">
+                                                    <span class="rs-count">{{training.graduated}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="content-part">
+                                                <h5 class="title">Projects completed for our clients.</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="counter-area">
+                                            <div class="counter-list mb-20">
+                                                <div class="counter-icon">
+                                                    <img src="{% static 'assets/images/counter/icons/2.png' %}" alt="Counter">
+                                                </div>
+                                                <div class="counter-number">
+                                                    <span class="rs-count">{{training.current}}</span>
+                                                    <span class="prefix">+</span>
+                                                </div>
+                                            </div>
+                                            <div class="content-part">
+                                                <h5 class="title">Current Students.</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="counter-area">
+                                            <div class="counter-list mb-20">
+                                                <div class="counter-icon">
+                                                    <img src="{% static 'assets/images/counter/icons/3.png' %}" alt="Counter">
+                                                </div>
+                                                <div class="counter-number">
+                                                    <span class="rs-count">{{training.years}}</span>
+                                                    <span class="prefix">+</span>
+                                                </div>
+                                            </div>
+                                            <div class="content-part">
+                                                <h5 class="title">Years experience in consulting.</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Counter Section End -->
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="project-information bg24">
+                            <div class="sec-title">
+                                <h2 class="title title4 pb-30">
+                                    Training Information
+                                </h2>
+                                <div class="title-inner mb-25">
+                                    <h4 class="title-small">Skills To Master</h4>
+                                    <p class="margin-0">{{training.skills}}</p>
+                                </div>
+                                <div class="title-inner mb-25">
+                                    <h4 class="title-small">Professional Trainer</h4>
+                                    <p class="margin-0">{{training.trainer}}</p>
+                                </div>
+                                <div class="title-inner mb-25">
+                                    <h4 class="title-small">Duration</h4>
+                                    <p class="margin-0">{{training.duration}}</p>
+                                </div>
+                                <div class="title-inner mb-25">
+                                    <h4 class="title-small">Trained By</h4>
+                                    <p class="margin-0">{{training.trained_by}}</p>
+                                </div>
+                                <div class="title-inner">
+                                    <h4 class="title-small">Location</h4>
+                                    <p class="margin-0">{{training.location}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Project Section End -->
+
+        <!-- About Section Start -->
+        <div class="rs-about pb-110 md-pb-70">
+            <div class="container">
+                <div class="row y-middle">
+                    <div class="col-lg-6 pr-50 md-pr-15">
+                        <div class="sec-title">
+                            <h2 class="title title4 pb-30">
+                                Project goals
+                            </h2>
+                            <p class="margin-0 pb-30"> {{training.project_goals | safe}}<p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="images-part">
+                            <img src="{{training.side_image_1.url}}" alt="Images">
+                        </div>
+                    </div>
+                </div>
+                <div class="final-outcome pt-100">
+                    <div class="row y-middle">
+                        <div class="col-lg-6">
+                            <div class="rs-videos choose-video">
+                                <div class="images-video">
+                                    <img src="{{training.side_image_2.url}}" alt="Images">
+                                </div>
+                                <div class="animate-border">
+                                    <a class="popup-border" href="{{training.youtube_link}}">
+                                        <i class="fa fa-play"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 pl-50 md-pl-15">
+                            <div class="sec-title">
+                                <h2 class="title title4 pb-30">
+                                    Final outcome of this training
+                                </h2>
+                                <p class="margin-0 pb-30"> {{training.final_outcome | safe }} </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                {% comment %} add form {% endcomment %}
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="sec-title">
+                            <h2 class="title title4 pb-30">
+                                
+                            </h2>
+                        </div>
+                    </div>
+
+                                    
+            </div>
+        </div>
+        <!-- About Section End -->
+        <div class="rs-contact main-home bg8 pt-100 pb-100 md-pt-70 md-pb-70">
+            <div class="container">
+                <div class="sec-title text-center mb-60">
+                    <h2 class="title title2 contact">
+                        Apply for this training
+                    </h2>
+                </div>
+                <div class="row y-middle">
+                    <div class="col-lg-10 md-mt-55 pl-40 md-pl-15">
+                        {% comment %} <div class="contact-wrap"> {% endcomment %}
+                            <div id="form-messages"></div>
+                            <div class="col-lg-10 md-mt-55 pl-40 md-pl-15">
+                                <form action="{% url 'core:apply' %}" method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    {{ form | crispy }}
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        {% comment %} </div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <!-- Main content End -->
+ {% endblock %}

@@ -54,7 +54,7 @@ DATABASES = {"default": env.db("DATABASE_URL")}
 #         "NAME": "dozie",
 #         "USER": "carhav",
 #         "PASSWORD": "918273645dozie",
-#         "HOST": "localhost",
+#         "HOST": "127.0.0.1",
 #         "PORT": "5432",
 #     }
 # }
@@ -307,6 +307,7 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
                 "carhav.users.context_processors.allauth_settings",
+                "carhav.core.context_processors.get_interviews",
             ],
         },
     }

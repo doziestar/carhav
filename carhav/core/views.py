@@ -1,6 +1,16 @@
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from django.urls import reverse_lazy
 
-from carhav.core.models import Post, Course, Team, BootcampModel
+from carhav.core.models import (
+    Interview,
+    Post,
+    Course,
+    Team,
+    BootcampModel,
+    UserCourseApplicationModel,
+)
+
+from carhav.core.form import SpecializeCourseForm, UserInterviewScheduleForm
 
 
 class HomePage(ListView):
@@ -9,28 +19,29 @@ class HomePage(ListView):
 
     def get_queryset(self):
         return Post.objects.all()
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['teams'] = Team.objects.all()
+        context["teams"] = Team.objects.all()
         return context
 
 
 class About(TemplateView):
     template_name = "core/about.html"
-    
+
+
 class Appointment(TemplateView):
     template_name = "core/appointment.html"
-    
+
 
 class ResumeRevamp(TemplateView):
     template_name = "core/resume.html"
-    
-    
+
+
 class InterviewPrep(TemplateView):
     template_name = "core/interview_prep.html"
-    
-    
+
+
 class Partners(TemplateView):
     template_name = "core/partners.html"
 
@@ -55,31 +66,73 @@ class Services(TemplateView):
 
 class Contact(TemplateView):
     template_name = "core/contact.html"
-    
+
+
 class Bootcamp(ListView):
     template_name = "core/bootcamps.html"
     paginate_by = 4
     model: BootcampModel = BootcampModel
     context_object_name = "bootcamps"
 
+
 class SpecializeTraining(ListView):
     template_name = "core/training.html"
     model = Course
     context_object_name = "courses_list"
     paginate_by: int = 4
-    
+
+
 class SpecializeTrainingDetails(DetailView):
     model = Course
-    template_name = "core/training-details.html"
-    context_object_name: str = "course"
-    
+    template_name = "core/training_details.html"
+    context_object_name: str = "training"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["form"] = SpecializeCourseForm()
+        return context
+
+
 class BootcampDetails(DetailView):
     model = BootcampModel
     template_name = "core/bootcamp-details.html"
     context_object_name: str = "bootcamp"
-    
+
 
 class TeamDetail(DetailView):
     model = Team
     template_name = "core/team_detail.html"
     context_object_name: str = "team"
+
+
+class UserCourseApplicationView(CreateView):
+    template_name = "core/training_details.html"
+    model = UserCourseApplicationModel
+    form_class: SpecializeCourseForm = SpecializeCourseForm 
+    # success_url = reverse_lazy("core:training")
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+
+    # redirect to payment page
+    # stripe payment link is on the course model
+    def get_success_url(self):
+        # get the course id from the form
+        course_id = self.request.POST.get("course")
+        # get the course object
+        course = Course.objects.get(id=course_id)
+        # get the course payment link
+        payment_link = course.payment_link
+        return payment_link
+    
+
+class InterviewDetailView(DetailView):
+    model = Interview
+    template_name = "core/interview_details.html"
+    context_object_name: str = "interview"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["form"] = UserInterviewScheduleForm()
+        return context

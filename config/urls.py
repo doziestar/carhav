@@ -45,3 +45,9 @@ if settings.DEBUG:
         import debug_toolbar
 
         urlpatterns = [path("__debug__/", include(debug_toolbar.urls))] + urlpatterns
+
+
+# rebrand admin
+admin.site.site_header = "Career haven Admin"
+admin.site.site_title = "Career haven Admin Portal"
+admin.site.index_title = "Welcome to Career haven Admin Portal"

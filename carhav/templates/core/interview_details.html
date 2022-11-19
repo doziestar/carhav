@@ -1,0 +1,103 @@
+{% extends 'core/base.html' %} {% load static crispy_forms_tags %} {% block title %}Book an appointment{% endblock title %} {% block content %}
+
+
+        <!-- Breadcrumbs Start -->
+        <div class="rs-breadcrumbs img8">
+            <div class="container">
+                <div class="breadcrumbs-inner">
+                    <h1 class="page-title">
+                        Talk with expert peoples
+                        <span class="watermark">Talk</span>
+                    </h1>
+                    {% comment %} get the first 100 letters in description {% endcomment %}
+                    {% comment %} <span class="sub-text">{{interview.description | truncatechars:100 }}</span> {% endcomment %}
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumbs End -->
+           <!-- Services Single Start -->
+           <div class="rs-services-single pt-100 pb-100 md-pt-70 md-pb-70">
+            <div class="container custom">
+                <div class="row">
+                    <div class="col-lg-8 pr-45 md-pr-15 md-mb-50">
+                        <div class="services-img">
+                            <img src="{{interview.image.url}}" alt="">
+                        </div>
+                        <h2 class="mt-34">{{interview.title}}</h2>
+                        <p>
+                            {{interview.description | safe}}
+                        </p>
+                    </div>
+                    <div class="col-lg-4">
+                        <ul class="services-list">
+                            {% for interview in interviews %}
+                            <li>
+                                <a href="{% url 'core:interview' interview.slug %}">{{interview.title}}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        <div class="services-add mb-50 mt-50">
+                            <div class="rs-videos address-item mb-35">
+                                <div class="address-icon">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                            </div>
+                            <h2 class="title">Have any Questions? <br> Call us Today!</h2>
+                            <div class="sec-title text-center">
+                                <h2 class="title title2">
+                                    <a href="tel:+12892441090">(+1)2892441090</a>
+                                </h2>
+                            </div>
+                        </div>
+                        {% comment %} <div class="brochures">
+                            <div class="title-part mb-55">
+                                <h2 class="title">
+                                    Brochures
+                                </h2>
+                            </div>
+                            <p class="margin-0">
+                                Cras enim urna, interdum nec por ttitor vitae, sollicitudin eu erosen. Praesent eget
+                                mollis nulla sollicitudin.
+                            </p>
+                            <div class="pdf-btn mt-40">
+                                <div class="btn-wrapper">
+                                    <a class="dual-btn" href="#"><span>Download</span></a>
+                                    <span class="dual-btn-connector">Or</span>
+                                    <a class="rselement-dual-btn" href="#"> <span>Discover</span></a>
+                                </div>
+                            </div>
+                        </div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Services Single End -->
+        <!-- About Section End -->
+        <div class="rs-contact main-home bg8 pt-100 pb-100 md-pt-70 md-pb-70">
+            <div class="container">
+                <div class="sec-title text-center mb-60">
+                    <h2 class="title title2 contact">
+                        Let Us Prepare You
+                    </h2>
+                </div>
+                <div class="row y-middle">
+                    <div class="col-lg-10 md-mt-55 pl-40 md-pl-15">
+                        {% comment %} <div class="contact-wrap"> {% endcomment %}
+                            <div id="form-messages"></div>
+                            <div class="col-lg-10 md-mt-55 pl-40 md-pl-15">
+                                <form action="{% url 'core:apply' %}" method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    {{ form | crispy }}
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        {% comment %} </div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+
+    </div>
+    <!-- Main content End -->
+{% endblock %}

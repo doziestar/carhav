@@ -1,4 +1,4 @@
-{% extends 'core/base.html' %} {% load static %} {% block title %}About Us{% endblock title %} {% block content %}
+{% extends 'core/base.html' %} {% load static %} {% block title %}Specialize Training{% endblock title %} {% block content %}
 
         <!-- Breadcrumbs Start -->
         <div class="rs-breadcrumbs img4">
@@ -25,14 +25,14 @@
                             <div class="col-lg-6 col-md-12 mb-50">
                                 <div class="blog-item">
                                     <div class="blog-img">
-                                        <a href="{{course.slug}}"><img src="{{course.image.url}}"
+                                        <a href="{% url 'core:training_details' course.slug %}"><img src="{{course.image.url}}"
                                                 alt=""></a>
                                         <ul class="post-categories">
-                                            <li><a href="{{course.slug}}">{{course.category}}</a></li>
+                                            <li><a href="{% url 'core:training_details' course.slug %}">{{course.category}}</a></li>
                                         </ul>
                                     </div>
                                     <div class="blog-content">
-                                        <h3 class="blog-title"><a href="{{course.slug}}">{{course.title}}</a></h3>
+                                        <h3 class="blog-title"><a href="{% url 'core:training_details' course.slug %}">{{course.title}}</a></h3>
                                         <div class="blog-meta">
                                             <ul class="btm-cate">
                                                 <li>
@@ -51,7 +51,7 @@
                                             {{course.excerpt | safe }}
                                         </div>
                                         <div class="blog-button">
-                                            <a class="blog-btn" href="{{course.slug}}">Continue Reading</a>
+                                            <a class="blog-btn" href="{% url 'core:training_details' course.slug %}">Continue Reading</a>
                                         </div>
                                     </div>
                                 </div>
