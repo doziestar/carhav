@@ -206,6 +206,9 @@ class UserInterviewScheduleForm(forms.ModelForm):
             ("Other", "Other"),
         ]
     )
+    # add widget to time and date fields
+    time = forms.TimeField(widget=forms.TimeInput(attrs={"type": "time"}))
+    date = forms.DateField(widget=forms.DateInput(attrs={"type": "date"}))
     class Meta:
         model = UserInterviewSchedule
         fields = "__all__"

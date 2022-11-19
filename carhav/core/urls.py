@@ -18,7 +18,8 @@ from carhav.core.views import (
     BootcampDetails,
     TeamDetail,
     UserCourseApplicationView,
-    InterviewDetailView
+    InterviewDetailView,
+    UserInterviewScheduleView
 )
 
 app_name = "core"
@@ -56,4 +57,5 @@ urlpatterns = [
     path("team/<str:slug>/", TeamDetail.as_view(), name="team_detail"),
     path("apply/", UserCourseApplicationView.as_view(), name="apply"),
     path("interview/<str:slug>/", InterviewDetailView.as_view(), name="interview"),
+    path("apply-interview/", UserInterviewScheduleView.as_view(), name="apply-interview"),
 ]

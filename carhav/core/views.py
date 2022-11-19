@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
 
 from carhav.core.models import (
     Interview,
@@ -8,6 +9,7 @@ from carhav.core.models import (
     Team,
     BootcampModel,
     UserCourseApplicationModel,
+    UserInterviewSchedule
 )
 
 from carhav.core.form import SpecializeCourseForm, UserInterviewScheduleForm
@@ -124,6 +126,34 @@ class UserCourseApplicationView(CreateView):
         course = Course.objects.get(id=course_id)
         # get the course payment link
         payment_link = course.payment_link
+        return payment_link
+    
+    
+class UserInterviewScheduleView(CreateView):
+    template_name = "core/interview_details.html"
+    model = UserInterviewSchedule
+    form_class: UserInterviewScheduleForm = UserInterviewScheduleForm
+    # success_url = reverse_lazy("core:training")
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+    
+    def form_invalid(self, form):
+        print(form.errors)
+        # re render the page that the user is on
+        link = self.request.path
+        return redirect(link)
+
+    # redirect to payment page
+    # stripe payment link is on the course model
+    def get_success_url(self):
+        # get the course id from the form
+        interview_id = self.request.POST.get("preparation_type")
+        # get the course object
+        interview = Interview.objects.get(id=interview_id)
+        # get the course payment link
+        payment_link = interview.payment_link
         return payment_link
     
 
