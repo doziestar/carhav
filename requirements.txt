@@ -77,7 +77,7 @@ platformdirs==2.5.4
 pluggy==1.0.0
 pre-commit==2.20.0
 prompt-toolkit==3.0.32
-psycopg2-binary==2.9.4
+psycopg2==2.9.4
 ptyprocess==0.7.0
 pure-eval==0.2.2
 py==1.11.0
