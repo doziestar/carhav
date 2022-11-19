@@ -75,6 +75,9 @@ jobs:
       - name: Checkout Code Repository
         uses: actions/checkout@v3
 
+      - name: Create Virtual Environment
+        run: python -m venv venv && source venv/bin/activate
+
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
