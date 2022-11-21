@@ -67,7 +67,7 @@ jobs:
           sudo -S rm -rf /home/dozie/carhav/_work/carhav/carhav/staticfiles
       - name:  Remove media
         run: echo "Remove Media" | echo ${{ secrets.VPS_PASSWORD }} |
-          sudo -S rm -rf /home/dozie/carhav/_work/carhav/carhav/media
+          sudo -S rm -rf /home/dozie/carhav/_work/carhav/carhav
 
   deploy:
     runs-on: self-hosted
