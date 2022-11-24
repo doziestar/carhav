@@ -5736,7 +5736,7 @@ body .search-modal .close:hover {
   background: #cd201f;
 }
 .rs-services-single .call-us {
-  background: url(images/choose/call-us.html);
+  background: url(assets/images/choose/call-us.html);
   background-repeat: no-repeat;
   padding: 110px 0px 110px 0px;
 }
