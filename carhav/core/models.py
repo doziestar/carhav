@@ -24,6 +24,7 @@ class Post(TimeStampedModel, TitleSlugDescriptionModel):
 
 
 class Course(TimeStampedModel, TitleSlugDescriptionModel):
+    excerpt=models.TextField(_("excerpt"), max_length=255, default="")
     image = models.ImageField(
         _("course_image"),
         upload_to="courses",
@@ -91,10 +92,9 @@ class Course(TimeStampedModel, TitleSlugDescriptionModel):
     def __str__(self):
         return self.title
 
-    @property
-    def excerpt(self):
-        return self.description[:100] + "......"
-
+    # @property
+    # def excerpt(self):
+    #     return self.description[:100] + "......"
 
 class Interview(TimeStampedModel, TitleSlugDescriptionModel):
     image = models.ImageField(
