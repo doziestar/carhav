@@ -86,5 +86,5 @@ jobs:
       - name: Run DB Migrations
         run: echo ${{ secrets.VPS_PASSWORD }} | sudo -S docker-compose -f local.yml run --rm django python manage.py migrate
 
-      - name: Run Django Tests
+      - name: Run Django Start
         run: echo ${{ secrets.VPS_PASSWORD }} | sudo -S docker-compose -f local.yml up -d
