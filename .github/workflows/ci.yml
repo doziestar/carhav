@@ -89,5 +89,8 @@ jobs:
       # - name: Run Django Collectstatic
       #   run: echo ${{ secrets.VPS_PASSWORD }} | sudo -S docker-compose -f local.yml run --rm django python manage.py collectstatic --noinput
 
+      - name: Run Django Compress Command
+        run: echo ${{ secrets.VPS_PASSWORD }} | sudo -S docker-compose -f local.yml run --rm django python manage.py compress
+
       - name: Run Django Start
         run: echo ${{ secrets.VPS_PASSWORD }} | sudo -S docker-compose -f local.yml up -d
