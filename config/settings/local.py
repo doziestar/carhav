@@ -69,7 +69,7 @@ INSTALLED_APPS += ["django_extensions"]  # noqa F405
 # Your stuff...
 # ------------------------------------------------------------------------------
 DEFAULT_FILE_STORAGE="django.core.files.storage.FileSystemStorage"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # django-compressor
 # ------------------------------------------------------------------------------
