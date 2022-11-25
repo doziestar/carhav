@@ -1310,7 +1310,7 @@ blockquote cite:before {
   color: #bb0b0b;
   line-height: 28px;
   font-size: 15px;
-  text-transform: uppercase;
+  text-transform: lowercase;
 }
 .desc {
   font-weight: 500;
@@ -1321,7 +1321,7 @@ blockquote cite:before {
   font-weight: 600;
   color: #191821;
   margin: 0 0 10px;
-  text-transform: capitalize;
+  text-transform:lowercase;
   display: block;
 }
 .sec-title .sub-text.big {
@@ -10538,7 +10538,7 @@ body .search-modal .close:hover {
 /*----------------------------------------------
     33. Preloader CSS
 ----------------------------------------------*/
-#pre-load {
+/*#pre-load {
   background-color: #fff;
   height: 100%;
   width: 100%;
@@ -10582,7 +10582,7 @@ body .search-modal .close:hover {
 .loader .loader-icon img {
   animation: loaderpulse alternate 900ms infinite;
   width: 30px;
-}
+}*/
 .woocommerce .quantity input[type="number"]::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: #363636 !important;
