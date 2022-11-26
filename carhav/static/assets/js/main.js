@@ -2,9 +2,6 @@
  *
  * -----------------------------------------------------------------------------
  *
- * Template : Bizup Consulting Business HTML Template
- * Author : reacthemes
- * Author URI : https://reactheme.com/ 
  *
  * -----------------------------------------------------------------------------
  *
