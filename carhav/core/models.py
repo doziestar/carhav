@@ -254,3 +254,6 @@ class UserCourseApplicationModel(TimeStampedModel):
         # send email to the user
         self.send_email()
         return super().save(**kwargs)
+    
+    class Meta:
+        verbose_name_plural = "User Course/BootCamp Applications"

@@ -43,6 +43,9 @@ class UserCourseApplicationAdmin(SummernoteModelAdmin):
     # make all fields readonly
     readonly_fields = [f.name for f in UserCourseApplicationModel._meta.fields]
     
+    # rename the model name in admin
+    verbose_name = "User Course/BootCamp Application"
+    
     
 @admin.register(UserInterviewSchedule)
 class UserCourseApplicationAdmin(SummernoteModelAdmin):

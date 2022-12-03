@@ -364,7 +364,7 @@
                     {% for boot in bootcamp %}  
                     <div class="blog-item">
                           <div class="image-wrap">
-                              <a href="{% url 'core:bootcamp' boot.slug %}"><img src="{{boot.image.url}}" alt="Blog"></a>
+                              <a href="{% url 'core:bootcamp-details' boot.slug %}"><img src="{{boot.image.url}}" alt="Blog"></a>
                               <ul class="post-categories">
                                   <li><a href="/">{{boot.category}}</a></li>
                               </ul>
@@ -372,9 +372,10 @@
                           <div class="blog-content">
                              <ul class="blog-meta mb-10">
                                  <li class="admin"> <i class="fa fa-user-o"></i> Career Haven</li>
-                                 <li class="date"> <i class="fa fa-calendar-check-o"></i> {{boot.created_at}}</li>
+                                 <li class="date"> <i class="fa fa-calendar-check-o"></i> {{boot.created|date:"d M Y"}}</li>
                              </ul>
-                             <h3 class="blog-title"><a href="{% url 'core:bootcamp' boot.slug %}">{{boot.title }}</p>
+                             <h3 class="blog-title"><a href="{% url 'core:bootcamp-details' boot.slug %}">{{boot.title }}</h3>
+                              <p class="back-desc">{{boot.excerpt}}</p>
                           </div>
                       </div>
                     {% endfor %}
