@@ -319,6 +319,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "carhav.users.context_processors.allauth_settings",
                 "carhav.core.context_processors.get_interviews",
+                "carhav.core.context_processors.get_bootcamps",
             ],
         },
     }

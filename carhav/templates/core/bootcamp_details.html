@@ -1,0 +1,119 @@
+{% extends 'core/base.html' %} {% load static %} {% block title %}Bootcamps: {{boot.title}}
+{% endblock title %} {% block content %}
+
+        <!-- Breadcrumbs Start -->
+        <div class="rs-breadcrumbs img3">
+            <div class="container">
+                <div class="breadcrumbs-inner">
+                    <h1 class="page-title">{{boot.title}}</h1>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumbs End -->
+
+        <!-- Blog Section Start -->
+        <div class="rs-inner-blog pt-100 pb-100 md-pt-70 md-pb-70">
+            <div class="container custom">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 order-last">
+                        <div class="widget-area">
+                            <div class="search-widget mb-50">
+                                <div class="search-wrap">
+                                    <input type="search" placeholder="Searching..." name="s" class="search-input"
+                                        value="">
+                                    <button type="submit" value="Search"><i class="flaticon-search"></i></button>
+                                </div>
+                            </div>
+                            <div class="recent-posts mb-50">
+                                <div class="widget-title">
+                                    <h3 class="title">Recent Bootcamps</h3>
+                                </div>
+                                {% for bootcap in bootcamp %}
+                                <div class="recent-post-widget no-border">
+                                    <div class="post-img">
+                                        <a href="{% url 'core:bootcamp' bootcap.slug %}"><img src="{{bootcap.image.url}}"
+                                                alt=""></a>
+                                    </div>
+                                    <div class="post-desc">
+                                        <a href="{% url 'core:bootcamp' bootcap.slug %}"> {{bootcap.title}} </a>
+                                        <span class="date-post"> <i class="fa fa-calendar"></i> {{bootcap.created_at}} </span>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% comment %} <div class="categories">
+                                <div class="widget-title">
+                                    <h3 class="title">Categories</h3>
+                                </div>
+                                <ul>
+                                    <li><a href="branding.html">Branding</a></li>
+                                    <li><a href="digital-marketing.html">Digital Marketing</a></li>
+                                    <li><a href="e-commerce.html">E-commerce</a></li>
+                                    <li><a href="graphic-design.html">Graphic Design</a></li>
+                                </ul>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                    <div class="col-lg-8 pr-35 md-pr-15 md-mt-50">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="blog-details">
+                                    <div class="bs-img mb-35">
+                                        <a href="#"><img src="assets/images/blog/inner/style1/4.jpg" alt=""></a>
+                                    </div>
+                                    <div class="blog-full">
+                                        <ul class="single-post-meta">
+                                            <li>
+                                                <span class="p-date"><i class="fa fa-calendar-check-o"></i> {{boot.created_at}} </span>
+                                            </li>
+                                            <li>
+                                                <span class="p-date"> <i class="fa fa-user-o"></i> Career Haven </span>
+                                            </li>
+                                            <li class="Post-cate">
+                                                <div class="tag-line">
+                                                    <i class="fa fa-book"></i>
+                                                    <a href="#">{{boot.category}}</a>
+                                                </div>
+                                            </li>
+                                            <li class="post-comment"> <i class="fa fa-comments-o"></i> 1</li>
+                                        </ul>
+                                        <p class="blog-desc">
+                                            {{boot.description}}
+                                        </p>
+                                        <div class="comment-note">
+                                            <div id="form-messages"></div>
+                                            <form id="contact-form" method="post" action="/">
+                                                <fieldset>
+                                                    <div class="row">
+                                                        <div class="col-lg-6 mb-35 col-md-6 col-sm-6">
+                                                            <input class="from-control" type="text" id="name"
+                                                                name="name" placeholder="Name*" required="">
+                                                        </div>
+                                                        <div class="col-lg-6 mb-35 col-md-6 col-sm-6">
+                                                            <input class="from-control" type="text" id="email"
+                                                                name="email" placeholder="E-Mail*" required="">
+                                                        </div>
+                                                        <div class="col-lg-12 mb-30">
+                                                            <textarea class="from-control" id="message" name="message"
+                                                                placeholder="Your message Here" required=""></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group mb-0">
+                                                        <input class="readon post" type="submit" value="Post Comment">
+                                                    </div>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog Section End -->
+    </div>
+    <!-- Main content End -->
+
+{% endblock %}
