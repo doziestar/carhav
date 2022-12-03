@@ -1134,216 +1134,44 @@ administrative charge of $100.
       data-md-device-nav="false"
       data-md-device-dots="true"
     >
+    {% for post in posts %}
       <div class="blog-item">
         <div class="image-wrap">
-          <a href="#"
-            ><img src="{% static 'assets/images/blog/1.jpg' %}" alt="Blog"
+          <a href="{% url 'core:post_detail' post.slug %}"
+            ><img src="{{post.image.url}}" alt="Blog"
           /></a>
         </div>
         <div class="blog-content">
           <ul class="blog-meta">
-            <li class="date">25 Jan 2021</li>
+            <li class="date">{{post.created | date:"d M Y"}}</li>
             <li class="admin">
-              <a href="#">Digital Marketing</a>
+              <a href="#">{{post.category}}</a>
             </li>
           </ul>
           <h3 class="blog-title">
-            <a href="#"
-              >7 Productivity tips to avoid burnout when working</a
+            <a href="{% url 'core:post_detail' post.slug %}"
+              >{{post.title}}</a
             >
           </h3>
           <p class="desc">
-            We denounce with righteous indige nation and dislike men who are so
-            beguiled and demo...
+            {{post.excerpt | truncatewords:20}}
           </p>
           <div class="blog-btn">
-            <a class="readon consultant blog" href="#"
+            <a class="readon consultant blog" href="{% url 'core:post_detail' post.slug %}"
               >Read More</a
             >
           </div>
         </div>
       </div>
-      <div class="blog-item">
-        <div class="image-wrap">
-          <a href="#"
-            ><img src="{% static 'assets/images/blog/2.jpg' %}" alt="Blog"
-          /></a>
-        </div>
-        <div class="blog-content">
-          <ul class="blog-meta">
-            <li class="date">25 Jan 2021</li>
-            <li class="admin">
-              <a href="#">Digital Marketing</a>
-            </li>
-          </ul>
-          <h3 class="blog-title">
-            <a href="#"
-              >7 Productivity tips to avoid burnout when working</a
-            >
-          </h3>
-          <p class="desc">
-            We denounce with righteous indige nation and dislike men who are so
-            beguiled and demo...
-          </p>
-          <div class="blog-btn">
-            <a class="readon consultant blog" href="#"
-              >Read More</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="blog-item">
-        <div class="image-wrap">
-          <a href="#"
-            ><img src="{% static 'assets/images/blog/3.jpg' %}" alt="Blog"
-          /></a>
-        </div>
-        <div class="blog-content">
-          <ul class="blog-meta">
-            <li class="date">25 Jan 2021</li>
-            <li class="admin">
-              <a href="#">Digital Marketing</a>
-            </li>
-          </ul>
-          <h3 class="blog-title">
-            <a href="#"
-              >7 Productivity tips to avoid burnout when working</a
-            >
-          </h3>
-          <p class="desc">
-            We denounce with righteous indige nation and dislike men who are so
-            beguiled and demo...
-          </p>
-          <div class="blog-btn">
-            <a class="readon consultant blog" href="#"
-              >Read More</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="blog-item">
-        <div class="image-wrap">
-          <a href="#"
-            ><img src="{% static 'assets/images/blog/4.jpg' %}" alt="Blog"
-          /></a>
-        </div>
-        <div class="blog-content">
-          <ul class="blog-meta">
-            <li class="date">25 Jan 2021</li>
-            <li class="admin">
-              <a href="#">Digital Marketing</a>
-            </li>
-          </ul>
-          <h3 class="blog-title">
-            <a href="#"
-              >7 Productivity tips to avoid burnout when working</a
-            >
-          </h3>
-          <p class="desc">
-            We denounce with righteous indige nation and dislike men who are so
-            beguiled and demo...
-          </p>
-          <div class="blog-btn">
-            <a class="readon consultant blog" href="#"
-              >Read More</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="blog-item">
-        <div class="image-wrap">
-          <a href="#"
-            ><img src="{% static 'assets/images/blog/5.jpg' %}" alt="Blog"
-          /></a>
-        </div>
-        <div class="blog-content">
-          <ul class="blog-meta">
-            <li class="date">25 Jan 2021</li>
-            <li class="admin">
-              <a href="#">Digital Marketing</a>
-            </li>
-          </ul>
-          <h3 class="blog-title">
-            <a href="#"
-              >7 Productivity tips to avoid burnout when working</a
-            >
-          </h3>
-          <p class="desc">
-            We denounce with righteous indige nation and dislike men who are so
-            beguiled and demo...
-          </p>
-          <div class="blog-btn">
-            <a class="readon consultant blog" href="#"
-              >Read More</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="blog-item">
-        <div class="image-wrap">
-          <a href="#"
-            ><img src="{% static 'assets/images/blog/6.jpg' %}" alt="Blog"
-          /></a>
-        </div>
-        <div class="blog-content">
-          <ul class="blog-meta">
-            <li class="date">25 Jan 2021</li>
-            <li class="admin">
-              <a href="#">Digital Marketing</a>
-            </li>
-          </ul>
-          <h3 class="blog-title">
-            <a href="#"
-              >7 Productivity tips to avoid burnout when working</a
-            >
-          </h3>
-          <p class="desc">
-            We denounce with righteous indige nation and dislike men who are so
-            beguiled and demo...
-          </p>
-          <div class="blog-btn">
-            <a class="readon consultant blog" href="#"
-              >Read More</a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="blog-item">
-        <div class="image-wrap">
-          <a href="#"
-            ><img src="{% static 'assets/images/blog/1.jpg' %}" alt="Blog"
-          /></a>
-        </div>
-        <div class="blog-content">
-          <ul class="blog-meta">
-            <li class="date">25 Jan 2021</li>
-            <li class="admin">
-              <a href="#">Digital Marketing</a>
-            </li>
-          </ul>
-          <h3 class="blog-title">
-            <a href="#"
-              >7 Productivity tips to avoid burnout when working</a
-            >
-          </h3>
-          <p class="desc">
-            We denounce with righteous indige nation and dislike men who are so
-            beguiled and demo...
-          </p>
-          <div class="blog-btn">
-            <a class="readon consultant blog" href="#"
-              >Read More</a
-            >
-          </div>
-        </div>
-      </div>
+    {% endfor %}
+      
     </div>
   </div>
 </div>
 <!-- Blog Section End -->
 
 <!-- Contact Section Start -->
-<div class="rs-contact main-home bg8 pt-100 pb-100 md-pt-70 md-pb-70">
+{% comment %} <div class="rs-contact main-home bg8 pt-100 pb-100 md-pt-70 md-pb-70">
   <div class="container">
     <div class="sec-title text-center mb-60">
       <h2 class="title title2 contact">
@@ -1435,4 +1263,6 @@ administrative charge of $100.
     </div>
   </div>
   {% endblock content %}
-</div>
+</div> {% endcomment %}
+
+{% endblock %}

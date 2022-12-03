@@ -320,6 +320,7 @@ TEMPLATES = [
                 "carhav.users.context_processors.allauth_settings",
                 "carhav.core.context_processors.get_interviews",
                 "carhav.core.context_processors.get_bootcamps",
+                "carhav.core.context_processors.get_posts",
             ],
         },
     }

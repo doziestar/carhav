@@ -51,6 +51,7 @@ class Partners(TemplateView):
 class PostDetail(DetailView):
     model = Post
     template_name = "core/post_detail.html"
+    context_object_name: str = "post"
 
 
 class PostList(ListView):
@@ -134,7 +135,7 @@ class UserCourseApplicationView(CreateView):
         return payment_link
     
 class UserBootCampApplicationView(CreateView):
-    template_name = "core/bootcamp_details.html"
+    template_name = "core/bootcamp-details.html"
     model = UserCourseApplicationModel
     form_class: BootcampForm = BootcampForm 
     # success_url = reverse_lazy("core:training")
@@ -147,7 +148,7 @@ class UserBootCampApplicationView(CreateView):
     # stripe payment link is on the course model
     def get_success_url(self):
         # get the course id from the form
-        bootcamp_id = self.request.POST.get("bootcamp")
+        bootcamp_id = self.request.POST.get("bootCamp")
         # get the course object
         bootcamp = BootcampModel.objects.get(id=bootcamp_id)
         # get the course payment link

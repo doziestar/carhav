@@ -10,13 +10,14 @@ class Post(TimeStampedModel, TitleSlugDescriptionModel):
     """Post model."""
 
     image = models.ImageField(
-        _("post"),
+        _("post_image"),
         upload_to="post",
         height_field=None,
         width_field=None,
         max_length=None,
         default="",
     )
+    excerpt = models.TextField(_("post_excerpt"), default="")
     category = models.CharField(_("category"), max_length=255, default="")
 
     def __str__(self):
@@ -239,7 +240,7 @@ class UserCourseApplicationModel(TimeStampedModel):
 
     def send_email(self):
         subject = "Course Application"
-        message = f"Hello {self.name}, \n\nThank you for applying for {self.course.title} course. \n\nWe will get back to you shortly."
+        message = f"Hello {self.name}, \n\nThank you for applying for {self.bootCamp.title} course. \n\nWe will get back to you shortly."
         email_from = settings.EMAIL_HOST_USER
         recipient_list = [
             self.email,

@@ -1,0 +1,84 @@
+{% extends 'core/base.html' %} {% load static crispy_forms_tags %} {% block title %}Post: {{post.title}}
+{% endblock title %} {% block content %}
+
+        <!-- Breadcrumbs Start -->
+        <div class="rs-breadcrumbs img3">
+            <div class="container">
+                <div class="breadcrumbs-inner">
+                    <h1 class="page-title">{{post.title}}</h1>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumbs End -->
+
+        <!-- Blog Section Start -->
+        <div class="rs-inner-blog pt-100 pb-100 md-pt-70 md-pb-70">
+            <div class="container custom">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 order-last">
+                        <div class="widget-area">
+                            <div class="search-widget mb-50">
+                                <div class="search-wrap">
+                                    <input type="search" placeholder="Searching..." name="s" class="search-input"
+                                        value="">
+                                    <button type="submit" value="Search"><i class="flaticon-search"></i></button>
+                                </div>
+                            </div>
+                            <div class="recent-posts mb-50">
+                                <div class="widget-title">
+                                    <h3 class="title">Recent Post</h3>
+                                </div>
+                                {% for post in posts %}
+                                <div class="recent-post-widget no-border">
+                                    <div class="post-img">
+                                        <a href="{% url 'core:post_detail' post.slug %}"><img src="{{post.image.url}}"
+                                                alt=""></a>
+                                    </div>
+                                    <div class="post-desc">
+                                        <a href="{% url 'core:post_detail' post.slug %}"> {{post.title}} </a>
+                                        <span class="date-post"> <i class="fa fa-calendar"></i> {{post.created}} </span>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 pr-35 md-pr-15 md-mt-50">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="blog-details">
+                                    <div class="bs-img mb-35">
+                                        <a href="#"><img src="{{post.image.url}}" alt=""></a>
+                                    </div>
+                                    <div class="blog-full">
+                                        <ul class="single-post-meta">
+                                            <li>
+                                                <span class="p-date"><i class="fa fa-calendar-check-o"></i> {{post.created}} </span>
+                                            </li>
+                                            <li>
+                                                <span class="p-date"> <i class="fa fa-user-o"></i> Career Haven </span>
+                                            </li>
+                                            <li class="Post-cate">
+                                                <div class="tag-line">
+                                                    <i class="fa fa-book"></i>
+                                                    <a href="#">{{post.category}}</a>
+                                                </div>
+                                            </li>
+                                            <li class="post-comment"> <i class="fa fa-comments-o"></i> 1</li>
+                                        </ul>
+                                        <p class="blog-desc">
+                                            {{post.description | safe }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog Section End -->
+    </div>
+    <!-- Main content End -->
+
+{% endblock %}
