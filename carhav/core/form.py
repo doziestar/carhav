@@ -53,11 +53,54 @@ class InterviewPrepForm(forms.Form):
     def save(self):
         super().save()
 
-class BootcampForm(forms.Form):
+class BootcampForm(forms.ModelForm):
     name = forms.CharField(max_length=100)
     email = forms.EmailField()
     phone = forms.CharField(max_length=100)
+    time_to_join = forms.ChoiceField(
+        choices=[
+            ("ASAP", "ASAP"),
+            ("1 Month", "1 Month"),
+            ("3 Months", "3 Months"),
+            ("6 Months", "6 Months"),
+            ("1 Year", "1 Year"),
+        ]
+    )
+    # country_of_residence should be a choice field with options from a list of countries
+    country_of_residence = forms.ChoiceField(
+        choices=[
+            ("Canada", "Canada"),
+            ("United States", "United States"),
+            ("United Kingdom", "United Kingdom"),
+            ("Nigeria", "Nigeria"),
+            ("Ghana", "Ghana"),
+            ("Kenya", "Kenya"),
+            ("South Africa", "South Africa"),
+            ("Australia", "Australia"),
+            ("Germany", "Germany"),
+            ("France", "France"),
+            ("Spain", "Spain"),
+            ("Italy", "Italy"),
+            ("Russia", "Russia"),
+            ("China", "China"),
+            ("Japan", "Japan"),
+            ("India", "India"),
+            ("Brazil", "Brazil"),
+            ("Mexico", "Mexico"),
+            ("Argentina", "Argentina"),
+            ("Chile", "Chile"),
+            ("Colombia", "Colombia"),
+            ("Peru", "Peru"),
+            ("Venezuela", "Venezuela"),
+            ("Other", "Other"),
+        ]
+    )
     message = forms.CharField(widget=forms.Textarea)
+    
+    class Meta:
+        model = UserCourseApplicationModel
+        fields = "__all__"
+        exclude = ["slug", "created_at", "updated_at", "course"]
 
     def __str__(self):
         return self.name

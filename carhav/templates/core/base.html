@@ -42,13 +42,13 @@
         <div class="offwrap"></div>
 
         <!--Preloader start here-->
-        <div id="pre-load">
+        {% comment %} <div id="pre-load">
            <div id="loader" class="loader">
                <div class="loader-container">
                    <div class='loader-icon'><img src="{% static 'assets/images/carlogodark.png' %}" alt="Bizup Consulting Business"></div>
                </div>
            </div>
-       </div>
+       </div> {% endcomment %}
         <!--Preloader area end here-->
 
 		<!-- Main content Start -->
@@ -134,7 +134,7 @@
                     
                                                         </li>
                                                             <li class="last-item">
-                                                                    <a href="{% url 'core:training' %}">Specialized Trainings</a>
+                                                                    <a href="{% url 'core:training' %}">Courses</a>
                                                                     {% comment %} <ul class="sub-menu">
                                                                         <li><a href="/">IIBA certification</a></li>
                                                                         <li><a href="{% url 'core:ecba' %}">ECBA – Entry certificate in Business Analysis</a></li>
@@ -169,7 +169,7 @@
 
                                                     </li>
                                                     <li class="rs-mega-menu">
-                                                        <a href="{% url 'core:contact' %}">Contact</a>
+                                                        <a href="{% url 'core:contact' %}">Looking To Hire?</a>
                                                     </li>
                                                 </ul> <!-- //.nav-menu -->
                                             </nav>
@@ -334,7 +334,7 @@
 
                             </li>
                             <li class="rs-mega-menu">
-                                <a href="{% url 'core:contact' %}">Contact</a>
+                                <a href="{% url 'core:contact' %}">Looking To Hire?</a>
                             </li>
                         </ul> <!-- //.nav-menu -->
                         <div class="canvas-contact">
@@ -376,62 +376,7 @@
             <!--Full width header End-->
             {% block content %}
             {% endblock content %}
-                           <!-- Contact Icon Section Start -->
-                <div class="rs-contact contact-icons-style pt-100 md-pt-70">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-6 col-sm-6 md-mb-30">
-                                <div class="contact-item">
-                                   <div class="contact-icon">
-                                       <img src="{% static 'assets/images/contact/icons/1.png' %}" alt="images">
-                                   </div>
-                                   <div class="content-text">
-                                       <h2 class="title"><a href="#">USA office</a></h2>
-                                       <p class="services-txt">
-                                        Huston, Texas.</p>
-                                   </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 md-mb-30">
-                                <div class="contact-item">
-                                   <div class="contact-icon">
-                                       <img src="{% static 'assets/images/contact/icons/2.png' %}" alt="images">
-                                   </div>
-                                   <div class="content-text">
-                                       <h2 class="title"><a href="#">Canada office</a></h2>
-                                       <p class="services-txt">
-                                        Calgary, Alberta.</p>
-                                   </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6 xs-mb-30">
-                                <div class="contact-item">
-                                   <div class="contact-icon">
-                                       <img src="{% static 'assets/images/contact/icons/3.png' %}" alt="images">
-                                   </div>
-                                   <div class="content-text">
-                                       <h2 class="title"><a href="#">Email us</a></h2>
-                                        <a href="#">admin@careerhaven.ca</a><br>
-                                        <a href="#">support@careerhaven.ca</a>
-                                   </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                <div class="contact-item">
-                                   <div class="contact-icon">
-                                       <img src="{% static 'assets/images/contact/icons/4.png' %}" alt="images">
-                                   </div>
-                                   <div class="content-text">
-                                       <h2 class="title"><a href="#">Call us</a></h2>
-                                       <a href="tel:+12892441090">(+1)2892441090</a>
-                                       {% comment %} <a href="tel:+12892441090">(+1)2892441090</a> {% endcomment %}
-                                   </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Contact Icon Section End -->
+                      
             </div>
             <!-- Contact Section End -->
 

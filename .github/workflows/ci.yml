@@ -65,9 +65,9 @@ jobs:
       - name:  Remove staticfiles
         run: echo "Remove Staticfiles" | echo ${{ secrets.VPS_PASSWORD }} |
           sudo -S rm -rf /home/dozie/carhav/_work/carhav/carhav/staticfiles
-      - name:  Remove media
-        run: echo "Remove Media" | echo ${{ secrets.VPS_PASSWORD }} |
-          sudo -S rm -rf /home/dozie/carhav/_work/carhav/carhav
+      # - name:  Remove media
+      #   run: echo "Remove Media" | echo ${{ secrets.VPS_PASSWORD }} |
+      #     sudo -S rm -rf /home/dozie/carhav/_work/carhav/carhav
 
   deploy:
     runs-on: self-hosted
@@ -86,5 +86,11 @@ jobs:
       - name: Run DB Migrations
         run: echo ${{ secrets.VPS_PASSWORD }} | sudo -S docker-compose -f local.yml run --rm django python manage.py migrate
 
-      - name: Run Django Tests
+      # - name: Run Django Collectstatic
+      #   run: echo ${{ secrets.VPS_PASSWORD }} | sudo -S docker-compose -f local.yml run --rm django python manage.py collectstatic --noinput
+
+      - name: Run Django Compress Command
+        run: echo ${{ secrets.VPS_PASSWORD }} | sudo -S docker-compose -f local.yml run --rm django python manage.py compress
+
+      - name: Run Django Start
         run: echo ${{ secrets.VPS_PASSWORD }} | sudo -S docker-compose -f local.yml up -d
