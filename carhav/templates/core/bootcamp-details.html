@@ -1,0 +1,130 @@
+{% extends 'core/base.html' %} {% load static crispy_forms_tags %} {% block title %}Bootcamps: {{boot.title}}
+{% endblock title %} {% block content %}
+
+        <!-- Breadcrumbs Start -->
+        <div class="rs-breadcrumbs img3">
+            <div class="container">
+                <div class="breadcrumbs-inner">
+                    <h1 class="page-title">{{boot.title}}</h1>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumbs End -->
+
+        <!-- Blog Section Start -->
+        <div class="rs-inner-blog pt-100 pb-100 md-pt-70 md-pb-70">
+            <div class="container custom">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 order-last">
+                        <div class="widget-area">
+                            <div class="search-widget mb-50">
+                                <div class="search-wrap">
+                                    <input type="search" placeholder="Searching..." name="s" class="search-input"
+                                        value="">
+                                    <button type="submit" value="Search"><i class="flaticon-search"></i></button>
+                                </div>
+                            </div>
+                            <div class="recent-posts mb-50">
+                                <div class="widget-title">
+                                    <h3 class="title">Recent Bootcamps</h3>
+                                </div>
+                                {% for bootcap in bootcamp %}
+                                <div class="recent-post-widget no-border">
+                                    <div class="post-img">
+                                        <a href="{% url 'core:bootcamp-details' bootcap.slug %}"><img src="{{bootcap.image.url}}"
+                                                alt=""></a>
+                                    </div>
+                                    <div class="post-desc">
+                                        <a href="{% url 'core:bootcamp-details' bootcap.slug %}"> {{bootcap.title}} </a>
+                                        <span class="date-post"> <i class="fa fa-calendar"></i> {{bootcap.created}} </span>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                                <div class="project-information bg24">
+                                    <div class="sec-title">
+                                        <h2 class="title title4 pb-30">
+                                            Bootcamp Information
+                                        </h2>
+                                        <div class="title-inner mb-25">
+                                            <h4 class="title-small">Skills To Master</h4>
+                                            <p class="margin-0">{{boot.skills}}</p>
+                                        </div>
+                                        <div class="title-inner mb-25">
+                                            <h4 class="title-small">Professional Trainer</h4>
+                                            <p class="margin-0">{{boot.trainer}}</p>
+                                        </div>
+                                        <div class="title-inner mb-25">
+                                            <h4 class="title-small">Duration</h4>
+                                            <p class="margin-0">{{boot.duration}}</p>
+                                        </div>
+                                        <div class="title-inner mb-25">
+                                            <h4 class="title-small">Trained By</h4>
+                                            <p class="margin-0">{{boot.trained_by}}</p>
+                                        </div>
+                                        <div class="title-inner">
+                                            <h4 class="title-small">Location</h4>
+                                            <p class="margin-0">{{boot.location}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% comment %} <div class="categories">
+                                <div class="widget-title">
+                                    <h3 class="title">Categories</h3>
+                                </div>
+                                <ul>
+                                    <li><a href="branding.html">Branding</a></li>
+                                    <li><a href="digital-marketing.html">Digital Marketing</a></li>
+                                    <li><a href="e-commerce.html">E-commerce</a></li>
+                                    <li><a href="graphic-design.html">Graphic Design</a></li>
+                                </ul>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                    <div class="col-lg-8 pr-35 md-pr-15 md-mt-50">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="blog-details">
+                                    <div class="bs-img mb-35">
+                                        <a href="#"><img src="{{boot.image.url}}" alt=""></a>
+                                    </div>
+                                    <div class="blog-full">
+                                        <ul class="single-post-meta">
+                                            <li>
+                                                <span class="p-date"><i class="fa fa-calendar-check-o"></i> {{boot.created_at}} </span>
+                                            </li>
+                                            <li>
+                                                <span class="p-date"> <i class="fa fa-user-o"></i> Career Haven </span>
+                                            </li>
+                                            <li class="Post-cate">
+                                                <div class="tag-line">
+                                                    <i class="fa fa-book"></i>
+                                                    <a href="#">{{boot.category}}</a>
+                                                </div>
+                                            </li>
+                                            <li class="post-comment"> <i class="fa fa-comments-o"></i> 1</li>
+                                        </ul>
+                                        <p class="blog-desc">
+                                            {{boot.description | safe }}
+                                        </p>
+                                        <div class="comment-note">
+                                            <div id="form-messages"></div>
+                                            <form action="{% url 'core:apply-bootcamp' %}" method="POST" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                {{ form | crispy }}
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Blog Section End -->
+    </div>
+    <!-- Main content End -->
+
+{% endblock %}

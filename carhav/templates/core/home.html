@@ -1127,30 +1127,33 @@ administrative charge of $100.
       data-md-device-nav="false"
       data-md-device-dots="true"
     >
+    {% for post in posts %}
       <div class="blog-item">
         <div class="image-wrap">
-          <a href="#"
-            ><img src="{% static 'assets/images/blog/1.jpg' %}" alt="Blog"
+          <a href="{% url 'core:post_detail' post.slug %}"
+            ><img src="{{post.image.url}}" alt="Blog"
           /></a>
         </div>
         <div class="blog-content">
           <ul class="blog-meta">
-            <li class="date">25 Jan 2021</li>
+            <li class="date">{{post.created | date:"d M Y"}}</li>
             <li class="admin">
-              <a href="#">Digital World</a>
+              <a href="#">Digital Marketing</a>
             </li>
           </ul>
           <h3 class="blog-title">
             <a href="#"
-              >Adapting to real world business trends</a
+              >7 Productivity tips to avoid burnout when working</a
             >
           </h3>
           <p class="desc">
-           
+            We denounce with righteous indige nation and dislike men who are so
+            beguiled and demo...
           </p>
           <div class="blog-btn">
             <a class="readon consultant blog" href="#"
-              >Read More</a>
+              >Read More</a
+            >
           </div>
         </div>
       </div>
@@ -1164,16 +1167,17 @@ administrative charge of $100.
           <ul class="blog-meta">
             <li class="date">25 Jan 2021</li>
             <li class="admin">
-              <a href="#">Fatigue</a>
+              <a href="#">Digital Marketing</a>
             </li>
           </ul>
           <h3 class="blog-title">
             <a href="#"
-              >Avoid burnout when working</a
+              >7 Productivity tips to avoid burnout when working</a
             >
           </h3>
           <p class="desc">
-           
+            We denounce with righteous indige nation and dislike men who are so
+            beguiled and demo...
           </p>
           <div class="blog-btn">
             <a class="readon consultant blog" href="#"
@@ -1192,16 +1196,17 @@ administrative charge of $100.
           <ul class="blog-meta">
             <li class="date">25 Jan 2021</li>
             <li class="admin">
-              <a href="#">Productivity</a>
+              <a href="#">Digital Marketing</a>
             </li>
           </ul>
           <h3 class="blog-title">
             <a href="#"
-              >7 Productivity tips for scaling...</a
+              >7 Productivity tips to avoid burnout when working</a
             >
           </h3>
           <p class="desc">
-            
+            We denounce with righteous indige nation and dislike men who are so
+            beguiled and demo...
           </p>
           <div class="blog-btn">
             <a class="readon consultant blog" href="#"
@@ -1220,16 +1225,17 @@ administrative charge of $100.
           <ul class="blog-meta">
             <li class="date">25 Jan 2021</li>
             <li class="admin">
-              <a href="#">SQL</a>
+              <a href="#">Digital Marketing</a>
             </li>
           </ul>
           <h3 class="blog-title">
             <a href="#"
-              >Learning made simple</a
+              >7 Productivity tips to avoid burnout when working</a
             >
           </h3>
           <p class="desc">
-            
+            We denounce with righteous indige nation and dislike men who are so
+            beguiled and demo...
           </p>
           <div class="blog-btn">
             <a class="readon consultant blog" href="#"
@@ -1248,16 +1254,17 @@ administrative charge of $100.
           <ul class="blog-meta">
             <li class="date">25 Jan 2021</li>
             <li class="admin">
-              <a href="#">CBAP</a>
+              <a href="#">Digital Marketing</a>
             </li>
           </ul>
           <h3 class="blog-title">
             <a href="#"
-              >We build Professionals</a
+              >7 Productivity tips to avoid burnout when working</a
             >
           </h3>
           <p class="desc">
-            
+            We denounce with righteous indige nation and dislike men who are so
+            beguiled and demo...
           </p>
           <div class="blog-btn">
             <a class="readon consultant blog" href="#"
@@ -1276,16 +1283,17 @@ administrative charge of $100.
           <ul class="blog-meta">
             <li class="date">25 Jan 2021</li>
             <li class="admin">
-              <a href="#">Business Analysis</a>
+              <a href="#">Digital Marketing</a>
             </li>
           </ul>
           <h3 class="blog-title">
             <a href="#"
-              >Productivity on-the-job</a
+              >7 Productivity tips to avoid burnout when working</a
             >
           </h3>
           <p class="desc">
-            
+            We denounce with righteous indige nation and dislike men who are so
+            beguiled and demo...
           </p>
           <div class="blog-btn">
             <a class="readon consultant blog" href="#"
@@ -1304,16 +1312,17 @@ administrative charge of $100.
           <ul class="blog-meta">
             <li class="date">25 Jan 2021</li>
             <li class="admin">
-              <a href="#">Data Analysis</a>
+              <a href="#">Digital Marketing</a>
             </li>
           </ul>
           <h3 class="blog-title">
             <a href="#"
-              >Tips to avoid burnout when working</a
+              >7 Productivity tips to avoid burnout when working</a
             >
           </h3>
           <p class="desc">
-           
+            We denounce with righteous indige nation and dislike men who are so
+            beguiled and demo...
           </p>
           <div class="blog-btn">
             <a class="readon consultant blog" href="#"
@@ -1328,7 +1337,7 @@ administrative charge of $100.
 <!-- Blog Section End -->
 
 <!-- Contact Section Start -->
-<div class="rs-contact main-home bg8 pt-100 pb-100 md-pt-70 md-pb-70">
+{% comment %} <div class="rs-contact main-home bg8 pt-100 pb-100 md-pt-70 md-pb-70">
   <div class="container">
     <div class="sec-title text-center mb-60">
       <h2 class="title title2 contact">
@@ -1420,4 +1429,6 @@ administrative charge of $100.
     </div>
   </div>
   {% endblock content %}
-</div>
+</div> {% endcomment %}
+
+{% endblock %}

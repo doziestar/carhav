@@ -10,13 +10,14 @@ class Post(TimeStampedModel, TitleSlugDescriptionModel):
     """Post model."""
 
     image = models.ImageField(
-        _("post"),
+        _("post_image"),
         upload_to="post",
         height_field=None,
         width_field=None,
         max_length=None,
         default="",
     )
+    excerpt = models.TextField(_("post_excerpt"), default="")
     category = models.CharField(_("category"), max_length=255, default="")
 
     def __str__(self):
@@ -189,6 +190,36 @@ class BootcampModel(TimeStampedModel, TitleSlugDescriptionModel):
     category = models.CharField(_("category"), max_length=100, default="")
     price = models.DecimalField(max_digits=6, decimal_places=2)
     payment_link = models.CharField(_("payment_link"), max_length=255, default="")
+    excerpt=models.TextField(_("excerpt"), max_length=255, default="")
+    payment_link = models.CharField(_("payment_link"), max_length=255, default="")
+    skills = models.TextField(_("Skills students will master"), default="")
+    trainer = models.CharField(
+        _("Trainers"), max_length=255, default="", help_text="separate with comma"
+    )
+    duration = models.CharField(_("Training duration"), max_length=255, default="")
+    trained_by = models.CharField(
+        _("Trained by"),
+        max_length=255,
+        default="",
+        help_text="separate with comma e.g. Amazon, CareerHaveen",
+    )
+    location = models.CharField(
+        _("Location"),
+        max_length=255,
+        default="",
+        help_text="separate with comma e.g. Lagos, Abuja, Remote",
+    )
+    final_outcome = models.TextField(_("Final outcome"), default="")
+    youtube_link = models.CharField(
+        _("Youtube Link"),
+        max_length=255,
+        default="",
+        help_text="enter a promotional video link",
+    )
+    project_goals = models.TextField(_("Project Goals"), default="")
+
+    def __str__(self):
+        return self.title
 
 
 class UserCourseApplicationModel(TimeStampedModel):
@@ -209,7 +240,7 @@ class UserCourseApplicationModel(TimeStampedModel):
 
     def send_email(self):
         subject = "Course Application"
-        message = f"Hello {self.name}, \n\nThank you for applying for {self.course.title} course. \n\nWe will get back to you shortly."
+        message = f"Hello {self.name}, \n\nThank you for applying for {self.bootCamp.title} course. \n\nWe will get back to you shortly."
         email_from = settings.EMAIL_HOST_USER
         recipient_list = [
             self.email,
@@ -224,3 +255,6 @@ class UserCourseApplicationModel(TimeStampedModel):
         # send email to the user
         self.send_email()
         return super().save(**kwargs)
+    
+    class Meta:
+        verbose_name_plural = "User Course/BootCamp Applications"

@@ -12,7 +12,7 @@ from carhav.core.models import (
     UserInterviewSchedule
 )
 
-from carhav.core.form import SpecializeCourseForm, UserInterviewScheduleForm
+from carhav.core.form import BootcampForm, SpecializeCourseForm, UserInterviewScheduleForm
 
 
 class HomePage(ListView):
@@ -51,6 +51,7 @@ class Partners(TemplateView):
 class PostDetail(DetailView):
     model = Post
     template_name = "core/post_detail.html"
+    context_object_name: str = "post"
 
 
 class PostList(ListView):
@@ -74,7 +75,7 @@ class Bootcamp(ListView):
     template_name = "core/bootcamps.html"
     paginate_by = 4
     model: BootcampModel = BootcampModel
-    context_object_name = "bootcamps"
+    context_object_name = "bootcamp"
 
 
 class SpecializeTraining(ListView):
@@ -98,7 +99,12 @@ class SpecializeTrainingDetails(DetailView):
 class BootcampDetails(DetailView):
     model = BootcampModel
     template_name = "core/bootcamp-details.html"
-    context_object_name: str = "bootcamp"
+    context_object_name: str = "boot"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["form"] = BootcampForm()
+        return context
 
 
 class TeamDetail(DetailView):
@@ -126,6 +132,27 @@ class UserCourseApplicationView(CreateView):
         course = Course.objects.get(id=course_id)
         # get the course payment link
         payment_link = course.payment_link
+        return payment_link
+    
+class UserBootCampApplicationView(CreateView):
+    template_name = "core/bootcamp-details.html"
+    model = UserCourseApplicationModel
+    form_class: BootcampForm = BootcampForm 
+    # success_url = reverse_lazy("core:training")
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+
+    # redirect to payment page
+    # stripe payment link is on the course model
+    def get_success_url(self):
+        # get the course id from the form
+        bootcamp_id = self.request.POST.get("bootCamp")
+        # get the course object
+        bootcamp = BootcampModel.objects.get(id=bootcamp_id)
+        # get the course payment link
+        payment_link = bootcamp.payment_link
         return payment_link
     
     
