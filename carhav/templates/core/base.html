@@ -316,8 +316,11 @@
                                         <a href="#">Interviews</a>
                                         <ul class="sub-menu">
                                             {% comment %} <li><a href="/">IIBA certification</a></li> {% endcomment %}
-                                            <li><a href="{% url 'core:interview_prep' %}">Interview Prep</a></li>
-                                            <li><a href="{% url 'core:resume' %}">Resume Review</a></li>
+                                            {% comment %} <li><a href="{% url 'core:interview_prep' %}">Interview Prep</a></li>
+                                            <li><a href="{% url 'core:resume' %}">Resume Review</a></li> {% endcomment %}
+                                            {% for interview in interviews%}
+                                            <li><a href="{% url 'core:interview' interview.slug%}">{{interview.title}}</a></li>
+                                            {% endfor %}
                             
                                         </ul>
 
