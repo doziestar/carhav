@@ -33,6 +33,11 @@ while True:
         )
         break
     except psycopg2.OperationalError as error:
+        print("${POSTGRES_HOST}")
+        print("${POSTGRES_PORT}")
+        print("${POSTGRES_DB}")
+        print("${POSTGRES_USER}")
+        print("${POSTGRES_PASSWORD}")
         sys.stderr.write("Waiting for PostgreSQL to become available...\n")
 
         if time.time() - start > suggest_unrecoverable_after:

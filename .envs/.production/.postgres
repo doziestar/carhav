@@ -1,7 +1,7 @@
 # PostgreSQL
 # ------------------------------------------------------------------------------
 POSTGRES_HOST=postgres
-POSTGRES_PORT=5432
+POSTGRES_PORT=5433
 POSTGRES_DB=carhav
 POSTGRES_USER=carhav
 POSTGRES_PASSWORD=carhav

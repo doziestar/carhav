@@ -11,7 +11,7 @@ services:
       dockerfile: ./compose/local/django/Dockerfile
     image: carhav_local_django
     container_name: carhav_local_django
-    # platform: linux/x86_64
+    platform: linux/x86_64
     depends_on:
       - postgres
     volumes:
@@ -32,8 +32,16 @@ services:
     volumes:
       - carhav_local_postgres_data:/var/lib/postgresql/data:Z
       - carhav_local_postgres_data_backups:/backups:z
+    ports:
+      - "5433:5432"
     env_file:
       - ./.envs/.local/.postgres
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5433
+      POSTGRES_DB: carhav
+      POSTGRES_USER: debug
+      POSTGRES_PASSWORD: debug
 
   # docs:
   #   image: carhav_local_docs
